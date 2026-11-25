@@ -4,7 +4,7 @@ import PostCard from '../../components/PostCard.astro';
 import { getPosts } from '../../utils/posts';
 const posts = await getPosts();
 ---
-<BaseLayout title="All posts" description="Every post on methane emissions, newest first.">
+<BaseLayout title="All posts" description="Every post, newest first.">
   <div class="narrow">
     <h1>All posts</h1>
     <ul class="post-list">{posts.map((p) => <PostCard post={p} />)}</ul>
