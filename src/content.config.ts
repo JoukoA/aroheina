@@ -1,6 +1,9 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const emptyStringToUndefined = <T extends z.ZodTypeAny>(schema: T) =>
+  z.preprocess((val) => (val === '' ? undefined : val), schema);
+
 const posts = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts' }),
   schema: z.object({
@@ -8,11 +11,11 @@ const posts = defineCollection({
     slug: z.string().optional(), // Astro uses this as the URL id when present
     excerpt: z.string().max(300),
     publishedAt: z.coerce.date(),
-    updatedAt: z.coerce.date().optional(),
+    updatedAt: emptyStringToUndefined(z.coerce.date().optional()),
     draft: z.boolean().default(false),
     topics: z.array(z.string()).default([]),
-    ogImage: z.string().optional(),
-    ogImageAlt: z.string().optional(),
+    ogImage: emptyStringToUndefined(z.string().optional()),
+    ogImageAlt: emptyStringToUndefined(z.string().optional()),
     sources: z
       .array(
         z.object({
