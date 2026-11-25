@@ -1,0 +1,50 @@
+---
+/**
+ * <YouTubeEmbed id="74_8SIkx3nA" title="..." summary="..." start={0} poster="/images/posts/poster.jpg" />
+ *
+ * - Privacy: nothing is requested from YouTube until the visitor clicks play; then
+ *   youtube-nocookie.com is used. No thumbnail is fetched from Google by default;
+ *   supply a self-hosted `poster` image if you want one.
+ * - Works without JavaScript (the play button is a normal link to YouTube).
+ * - `summary` (or slot content) is real text under the video, so search engines and AI engines can index it.
+ */
+interface Props { id: string; title: string; summary?: string; start?: number; poster?: string; channel?: string }
+const { id, title, summary, start = 0, poster, channel } = Astro.props;
+const watch = `https://www.youtube.com/watch?v=${id}${start ? `&t=${start}s` : ''}`;
+const hasSlot = Astro.slots.has('default');
+---
+<figure class="yt">
+  <div class="yt-frame" data-yt-id={id} data-yt-title={title} data-yt-start={start}>
+    <a class="yt-play" href={watch} rel="noopener" aria-label={`Play video: ${title}`} style={poster ? `background-image:url('${poster}')` : undefined}>
+      <svg viewBox="0 0 68 48" aria-hidden="true" focusable="false"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.2 34 .2 34 .2S12.8.2 7.5 1.7a8.5 8.5 0 0 0-6 6C0 13 0 24 0 24s0 11 1.5 16.3a8.5 8.5 0 0 0 6 6C12.8 47.8 34 47.8 34 47.8s21.2 0 26.5-1.5a8.5 8.5 0 0 0 6-6C68 35 68 24 68 24s0-11-1.5-16.3z" fill="#c4302b"/><path d="M27 34.5V13.5L45 24z" fill="#fff"/></svg>
+      <span class="yt-label">{title}</span>
+    </a>
+  </div>
+  {(summary || hasSlot) && (
+    <figcaption class="video-summary">
+      <strong>Summary:</strong> {summary}<slot />
+      <br /><a href={watch} rel="noopener">Watch on YouTube{channel ? ` (${channel})` : ''}</a>
+    </figcaption>
+  )}
+</figure>
+
+<script>
+  // One listener for all embeds on the page. Replaces the facade with the player on click.
+  document.addEventListener('click', (e) => {
+    const link = (e.target as Element | null)?.closest?.('.yt-play');
+    if (!link || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const box = link.parentElement as HTMLElement;
+    e.preventDefault();
+    const { ytId, ytTitle, ytStart } = box.dataset;
+    const iframe = document.createElement('iframe');
+    const q = new URLSearchParams({ autoplay: '1', rel: '0' });
+    if (ytStart && ytStart !== '0') q.set('start', ytStart);
+    iframe.src = `https://www.youtube-nocookie.com/embed/${ytId}?${q}`;
+    iframe.title = ytTitle ?? 'YouTube video';
+    iframe.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    box.replaceChildren(iframe);
+    iframe.focus();
+  });
+</script>

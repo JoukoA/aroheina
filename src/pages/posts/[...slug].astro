@@ -1,0 +1,20 @@
+---
+import { render } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+import ChartFigure from '../../components/ChartFigure.astro';
+import DataTable from '../../components/DataTable.astro';
+import YouTubeEmbed from '../../components/YouTubeEmbed.astro';
+import Table from '../../components/Table.astro';
+import { getPosts } from '../../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<PostLayout post={post}>
+  <!-- Components are provided here, so post files need no import lines. -->
+  <Content components={{ ChartFigure, DataTable, YouTubeEmbed, table: Table }} />
+</PostLayout>

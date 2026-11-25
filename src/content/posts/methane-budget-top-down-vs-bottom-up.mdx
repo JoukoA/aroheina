@@ -1,0 +1,90 @@
+---
+title: "Why two methods give two answers for global methane emissions"
+slug: methane-budget-top-down-vs-bottom-up
+excerpt: "For 2008–2017, atmospheric measurements put global methane emissions at 576 Tg CH₄ per year; inventory-based estimates reach 737. Here is why they differ and what is still uncertain."
+publishedAt: 2026-11-20
+updatedAt: 2026-11-25
+draft: false
+topics:
+  - atmospheric-science
+  - monitoring-satellite
+sources:
+  - title: "The Global Methane Budget 2000–2017"
+    url: "https://essd.copernicus.org/articles/12/1561/2020/"
+    publisher: "Earth System Science Data 12(3), 1561–1623 (Saunois et al.)"
+    year: 2020
+  - title: "Sources of Methane (visualization and video)"
+    url: "https://svs.gsfc.nasa.gov/4799"
+    publisher: "NASA Scientific Visualization Studio"
+    year: 2020
+  - title: "Global Carbon Project methane budget data (DOI 10.18160/GCP-CH4-2019)"
+    url: "https://doi.org/10.18160/GCP-CH4-2019"
+    publisher: "Global Carbon Project"
+    year: 2019
+---
+
+{/* SAMPLE POST: shows a chart, a data table, a video, citations and an updated date.
+    Figures come from Saunois et al. (2020). Replace or delete this post before you publish your own. */}
+
+**In short:** for the decade 2008–2017, atmospheric "top-down" estimates put global methane emissions at about 576 teragrams of methane per year (Tg CH₄/yr), while "bottom-up" estimates add up to about 737 Tg CH₄/yr. About 60% of the top-down total is caused by human activity.<sup><a href="#source-1">[1]</a></sup>
+
+## The two ways of counting methane
+
+Scientists estimate the global methane budget in two independent ways.
+
+- **Top-down** methods start from measured methane concentrations in the air. Atmospheric inversion models work backwards, using wind and chemistry, to infer how much must have been emitted and where.
+- **Bottom-up** methods start from the sources: inventories of human activity (livestock numbers, gas production, landfills) and process models of natural emitters such as wetlands.
+
+<ChartFigure
+  src="/images/posts/methane-budget-2008-2017.svg"
+  alt="Horizontal bar chart of global methane emissions for 2008–2017 in teragrams of methane per year. Top-down total: 576, range 550 to 594. Bottom-up total: 737, range 594 to 881. Human-caused top-down: 359, range 336 to 376."
+  caption="Global methane emissions, 2008–2017 average (Tg CH₄ per year)"
+  takeaway="The bottom-up total is almost 30% larger than the top-down total, and its range is much wider."
+  methodology="Tg CH₄/yr means teragrams (million tonnes) of methane per year, averaged over 2008–2017. Whiskers show the minimum and maximum of each model or inventory ensemble, not a statistical confidence interval."
+  source="Saunois et al. (2020), Earth System Science Data"
+  sourceUrl="https://essd.copernicus.org/articles/12/1561/2020/"
+/>
+
+## The numbers side by side
+
+<DataTable
+  caption="Global methane emissions, 2008–2017 decade"
+  note="Units: Tg CH₄ per year (1 Tg = 1 million tonnes). Ranges are the minimum–maximum of the estimates in each approach."
+  source="Saunois et al. (2020)"
+  sourceUrl="https://essd.copernicus.org/articles/12/1561/2020/"
+>
+
+| Approach | Total (Tg CH₄/yr) | Range (Tg CH₄/yr) | Human-caused (Tg CH₄/yr) |
+| --- | --- | --- | --- |
+| Top-down (atmospheric inversions) | 576 | 550–594 | 359 (336–376) |
+| Bottom-up (inventories and process models) | 737 | 594–881 | See source |
+
+</DataTable>
+
+## Why the totals disagree
+
+The paper's authors report that the bottom-up total is almost 30% larger than the top-down one. The biggest uncertainty comes from natural emissions, especially wetlands and other inland waters, where bottom-up estimates run higher than the atmosphere appears to allow.<sup><a href="#source-1">[1]</a></sup> That mismatch suggests at least some bottom-up natural emissions are overestimated.
+
+## Why it matters for the climate
+
+- **Concentration:** surface methane reached 1,857 parts per billion (ppb) in 2018, roughly 2.6 times its estimated pre-industrial level in 1750.<sup><a href="#source-1">[1]</a></sup>
+- **Warming strength:** over 100 years, methane traps heat about 28 times more effectively than carbon dioxide (GWP100 = 28, IPCC AR5 value, without climate feedbacks).<sup><a href="#source-1">[1]</a>,<a href="#source-2">[2]</a></sup>
+- **Short lifetime:** methane lasts about 9 years in the atmosphere, so cutting emissions shows up in concentrations within a few decades.<sup><a href="#source-1">[1]</a></sup>
+- **Trend:** since 2012, global methane emissions have been tracking the warmest scenarios assessed by the IPCC.<sup><a href="#source-1">[1]</a></sup>
+
+## Video: where methane comes from
+
+<YouTubeEmbed
+  id="74_8SIkx3nA"
+  title="Sources of Methane (NASA Scientific Visualization Studio)"
+  channel="NASA"
+  summary="A short NASA visualization of the main sources of atmospheric methane around the world and how scientists model the gas to understand which conditions and activities produce it. NASA's accompanying page notes that methane traps heat about 28 times more effectively than carbon dioxide over a 100-year timescale."
+/>
+
+## What to take away
+
+1. Quote both numbers and name the method; "576" and "737" answer different questions.
+2. The gap is mostly a natural-sources problem, which is why better wetland and inland-water maps and more local measurements are priorities.
+3. Always keep the unit (Tg CH₄/yr) and the period (2008–2017) with the figure.
+
+*Update, 25 November 2026: added the range definitions and the NASA video summary.*

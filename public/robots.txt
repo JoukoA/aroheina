@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+# Welcome AI search / answer-engine crawlers explicitly (edit to taste)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://aroheina.online/sitemap.xml

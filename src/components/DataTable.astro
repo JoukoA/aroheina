@@ -1,0 +1,23 @@
+---
+/**
+ * <DataTable caption="..." source="..." sourceUrl="..." note="...">
+ *
+ * | Column (unit) | ... |
+ * | --- | --- |
+ *
+ * </DataTable>
+ * Wraps a normal Markdown table in a <figure> with caption, units/method note and source.
+ */
+interface Props { caption: string; note?: string; source?: string; sourceUrl?: string }
+const { caption, note, source, sourceUrl } = Astro.props;
+---
+<figure class="data-table">
+  <figcaption><span class="fig-title">{caption}</span></figcaption>
+  <slot />
+  {(note || source) && (
+    <figcaption class="note">
+      {note && <p>{note}</p>}
+      {source && <p><strong>Source:</strong> {sourceUrl ? <a href={sourceUrl} rel="noopener">{source}</a> : source}</p>}
+    </figcaption>
+  )}
+</figure>

@@ -1,0 +1,30 @@
+---
+/**
+ * <ChartFigure src alt caption takeaway methodology source sourceUrl width height />
+ * - alt: describe what the chart SHOWS (trend, comparison, numbers), not "chart of ...".
+ * - caption: one-line title incl. unit and period, e.g. "Global methane emissions, 2008-2017 (Tg CH4 per year)".
+ * - methodology: units, period, data processing, uncertainty definition.
+ */
+interface Props {
+  src: string;
+  alt: string;
+  caption: string;
+  takeaway?: string;
+  methodology?: string;
+  source?: string;
+  sourceUrl?: string;
+  width?: number | string;
+  height?: number | string;
+  eager?: boolean;
+}
+const { src, alt, caption, takeaway, methodology, source, sourceUrl, width = 1200, height = 675, eager = false } = Astro.props;
+---
+<figure class="chart">
+  <img src={src} alt={alt} width={width} height={height} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  <figcaption>
+    <span class="fig-title">{caption}</span>
+    {takeaway && <p class="takeaway"><strong>Key takeaway:</strong> {takeaway}</p>}
+    {methodology && <p class="note"><strong>Units and method:</strong> {methodology}</p>}
+    {source && <p class="note"><strong>Source:</strong> {sourceUrl ? <a href={sourceUrl} rel="noopener">{source}</a> : source}</p>}
+  </figcaption>
+</figure>

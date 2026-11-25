@@ -1,0 +1,74 @@
+# Sveltia CMS configuration. Docs: https://github.com/sveltia/sveltia-cms
+backend:
+  name: github
+  repo: joukoa/aroheina        # <- your GitHub user/repo
+  branch: main
+  # Sign-in: open /admin/ and choose "Sign In with Token" (a fine-grained personal access token).
+  # For a normal "Login with GitHub" button later, add:  base_url: https://YOUR-OAUTH-PROXY.workers.dev
+
+site_url: https://aroheina.online
+display_url: https://aroheina.online
+locale: en
+
+# "simple" = Publish commits straight to main (then GitHub Actions deploys).
+# Switch to "editorial_workflow" if you want drafts saved as pull requests first.
+publish_mode: simple
+
+media_folder: public/images/posts   # where uploaded files are stored in the repo
+public_folder: /images/posts        # how they are referenced on the live site
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: src/content/posts
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: '{{fields.slug}}'
+    summary: '{{title}} ({{publishedAt}})'
+    sortable_fields: [publishedAt, updatedAt, title]
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: 'Slug (the URL is /posts/<slug>/)'
+        name: slug
+        widget: string
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Lowercase letters, numbers and hyphens only']
+        hint: 'Keep it short. Changing it later changes the URL (and breaks old links).'
+      - label: 'Excerpt (meta description, 120-160 characters)'
+        name: excerpt
+        widget: text
+        pattern: ['^[\s\S]{40,300}$', 'Write 40-300 characters (aim for 120-160)']
+      - { label: Published, name: publishedAt, widget: datetime, date_format: 'YYYY-MM-DD', time_format: false, picker_utc: true }
+      - { label: 'Updated (set whenever you change facts or data)', name: updatedAt, widget: datetime, date_format: 'YYYY-MM-DD', time_format: false, picker_utc: true, required: false }
+      - { label: 'Draft (hidden from the live site)', name: draft, widget: boolean, default: false }
+      - label: Topics
+        name: topics
+        widget: select
+        multiple: true
+        options:
+          - { label: Agriculture and enteric methane, value: agriculture-enteric }
+          - { label: Wetlands and natural sources, value: wetlands }
+          - { label: 'Oil, gas and coal', value: oil-and-gas }
+          - { label: Landfills and waste, value: waste }
+          - { label: Monitoring and satellites, value: monitoring-satellite }
+          - { label: Policy and targets, value: policy }
+          - { label: Atmospheric science, value: atmospheric-science }
+          - { label: Mitigation, value: mitigation }
+      - { label: 'Social image (optional, 1200x630)', name: ogImage, widget: image, required: false }
+      - { label: Social image description, name: ogImageAlt, widget: string, required: false }
+      - label: Sources
+        name: sources
+        widget: list
+        required: false
+        hint: 'Cite in the text as [1], [2]... matching the order here (link to #source-1, #source-2).'
+        summary: '{{fields.title}}'
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: URL, name: url, widget: string, pattern: ['^https?://', 'Must start with https://'] }
+          - { label: Publisher or journal, name: publisher, widget: string, required: false }
+          - { label: Year, name: year, widget: string, required: false }
+      - label: Body
+        name: body
+        widget: markdown
+        hint: 'Use the + button to insert Chart figure, Data table or YouTube video blocks. Use Code view for raw MDX.'

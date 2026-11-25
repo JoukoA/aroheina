@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { TOPICS } from '../../config';
+import { getPosts } from '../../utils/posts';
+const posts = await getPosts();
+const count = (slug: string) => posts.filter((p) => p.data.topics.includes(slug)).length;
+---
+<BaseLayout title="Topics" description="Methane emissions by subtopic: agriculture, wetlands, oil and gas, waste, satellite monitoring, policy and more.">
+  <div class="wrap">
+    <h1>Topics</h1>
+    <p class="dek">Methane has many sources and many ways of being measured. Pick a subtopic.</p>
+    <ul class="topic-grid">
+      {TOPICS.map((t) => (
+        <li>
+          {count(t.slug) > 0
+            ? <><a href={`/topics/${t.slug}/`}>{t.label}</a> ({count(t.slug)})</>
+            : <span>{t.label} (coming soon)</span>}
+          <p>{t.description}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

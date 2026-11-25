@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { AUTHOR, SITE } from '../config';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: AUTHOR.name,
+    url: AUTHOR.url,
+    description: AUTHOR.bio,
+    ...(AUTHOR.jobTitle && { jobTitle: AUTHOR.jobTitle }),
+    ...(AUTHOR.sameAs.length && { sameAs: AUTHOR.sameAs }),
+  },
+};
+---
+<BaseLayout title={`About ${AUTHOR.name}`} description={AUTHOR.bio} jsonLd={jsonLd}>
+  <div class="narrow prose">
+    <h1>About {AUTHOR.name}</h1>
+    <p>{AUTHOR.bio}</p>
+    <h2>About this blog</h2>
+    <p>{SITE.description}</p>
+    <h2>How I handle numbers</h2>
+    <p>Every figure is given with its unit, time period and source. Methane is reported in teragrams of methane per year (Tg CH₄/yr) unless stated otherwise, and climate-equivalence figures name the time horizon (GWP100 or GWP20) and the IPCC report they come from. Posts show an updated date when they change.</p>
+    {AUTHOR.sameAs.length > 0 && (
+      <>
+        <h2>Elsewhere</h2>
+        <ul>{AUTHOR.sameAs.map((u) => <li><a href={u} rel="me noopener">{u}</a></li>)}</ul>
+      </>
+    )}
+  </div>
+</BaseLayout>

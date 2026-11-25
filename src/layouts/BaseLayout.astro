@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
+import { SITE } from '../config';
+
+interface Props {
+  title: string;
+  description?: string;
+  type?: 'website' | 'article';
+  image?: string;
+  imageAlt?: string;
+  publishedTime?: Date;
+  modifiedTime?: Date;
+  tags?: string[];
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+const { description = SITE.description, ...seo } = Astro.props;
+---
+<!doctype html>
+<html lang={SITE.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} RSS`} href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- Own font: uncomment after adding /public/fonts/body.woff2 (see src/styles/fonts.css)
+    <link rel="preload" href="/fonts/body.woff2" as="font" type="font/woff2" crossorigin />
+    -->
+    <SEO {...seo} description={description} />
+    <Analytics />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main"><slot /></main>
+    <Footer />
+  </body>
+</html>

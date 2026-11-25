@@ -1,0 +1,18 @@
+---
+import { SITE } from '../config';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/posts/', label: 'Posts' },
+  { href: '/topics/', label: 'Topics' },
+  { href: '/about/', label: 'About' },
+  { href: '/rss.xml', label: 'RSS' },
+];
+---
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">{SITE.name}</a>
+    <nav class="site-nav" aria-label="Main">
+      {links.map((l) => <a href={l.href} aria-current={path.startsWith(l.href) && l.href !== '/rss.xml' ? 'page' : undefined}>{l.label}</a>)}
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { TOPICS, topicLabel } from '../../config';
+import { getPosts } from '../../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  // Only topics that have at least one post get a page (keeps empty pages out of the sitemap).
+  const slugs = new Set<string>(posts.flatMap((p) => p.data.topics));
+  return [...slugs].map((topic) => ({
+    params: { topic },
+    props: { posts: posts.filter((p) => p.data.topics.includes(topic)) },
+  }));
+}
+const { topic } = Astro.params;
+const { posts } = Astro.props;
+const meta = TOPICS.find((t) => t.slug === topic);
+const label = topicLabel(topic!);
+---
+<BaseLayout title={`${label}: methane posts`} description={meta?.description ?? `Posts about ${label}.`}>
+  <div class="narrow">
+    <p><a href="/topics/">All topics</a></p>
+    <h1>{label}</h1>
+    {meta && <p class="dek">{meta.description}</p>}
+    <ul class="post-list">{posts.map((p) => <PostCard post={p} />)}</ul>
+  </div>
+</BaseLayout>

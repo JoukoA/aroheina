@@ -1,0 +1,19 @@
+/*
+  YOUR OWN FONT (self-hosted, privacy-friendly, fast)
+  1. Convert your font to WOFF2 and copy it into /public/fonts/ (e.g. /public/fonts/body.woff2).
+     Check the licence allows web embedding.
+  2. Uncomment the @font-face block below and fix the file name and weight range.
+  3. In global.css, put the family name first in --font-body (and --font-ui if you want it for headings too).
+  4. Optional: add <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/body.woff2">
+     to the <head> in src/layouts/BaseLayout.astro for a faster first paint.
+*/
+
+/*
+@font-face {
+  font-family: 'YourFont';
+  src: url('/fonts/body.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/
