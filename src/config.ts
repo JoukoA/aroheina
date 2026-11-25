@@ -1,9 +1,9 @@
 // Single place for site-wide settings. Edit the PLACEHOLDER values.
 export const SITE = {
-  name: 'Aroheina',
-  tagline: 'Notes on methane emissions: sources, measurement and policy',
+  name: 'Aroheina.Online',
+  tagline: 'Information bank for emission monitoring and reporting',
   description:
-    'Plain-language, source-cited analysis of methane emissions: agriculture, wetlands, oil and gas, waste, satellite monitoring and climate policy.',
+    'This site is built to share practical, experience- based guidance on methane and flaring emission monitoring, from quantification methodologies to compliance frameworks like OGMP 2.0 and the EU Methane Regulation (EU) 2024/1787. The aim is to support organisations, operators, and professionals who are working to understand, manage, and reduce their emissions with accurate, traceable data.',
   url: 'https://aroheina.online',
   language: 'en',
   locale: 'en_GB',
@@ -14,10 +14,10 @@ export const AUTHOR = {
   name: 'Jouko Aroheinä',
   url: 'https://aroheina.online/about/',
   // PLACEHOLDER: replace with your own bio (2-4 sentences work best for readers and AI engines)
-  bio: 'Jouko Aroheinä writes about methane emissions, how they are measured, and what the evidence says about reducing them. [Replace this with your real background and expertise.]',
-  jobTitle: '', // optional, e.g. "Independent researcher"
+  bio: 'Jouko Aroheinä is a commercial specialist operating at the intersection of environmental measurement, regulatory compliance, and technology communication. Drawing on extensive international B2B experience in environmental technology and SaaS, he helps energy organizations apply accurate, traceable emission data toward OGMP 2.0 Level 5 compliance and EU Methane Regulation (EU 2024/1787) alignment. An established industry speaker at forums like IMM Europe and a published author with Business Finland and The Energy Community, Jouko translates complex MRV methodologies into clear, actionable strategies that drive measurable emission reductions.',
+  jobTitle': 'Independent researcher', // optional, e.g. "Independent researcher"
   // PLACEHOLDER: add real profile links (LinkedIn, ORCID, Google Scholar, GitHub, Mastodon...). Used as JSON-LD sameAs.
-  sameAs: ['https://github.com/joukoa'] as string[],
+  sameAs: ['https://orcid.org/0009-0007-1649-6679'] as string['https://www.linkedin.com/in/aroheina/'],
 };
 
 // Methane subtopics. `slug` is what the CMS stores in a post's `topics` field.
