@@ -30,10 +30,12 @@ const jsonLd = [
 ];
 ---
 <BaseLayout title={SITE.name} description={SITE.description} jsonLd={jsonLd}>
-  <section class="hero wrap">
-    <h1>{SITE.tagline}</h1>
-    <p class="dek">{SITE.description}</p>
-  </section>
+  <div class="hero-field">
+    <section class="hero wrap">
+      <h1>{SITE.tagline}</h1>
+      <p class="dek">{SITE.description}</p>
+    </section>
+  </div>
 
   <section class="wrap block" aria-labelledby="topics-heading">
     <h2 id="topics-heading">Topics</h2>
