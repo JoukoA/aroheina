@@ -19,10 +19,14 @@ const meta = TOPICS.find((t) => t.slug === topic);
 const label = topicLabel(topic!);
 ---
 <BaseLayout title={`${label}: methane posts`} description={meta?.description ?? `Posts about ${label}.`}>
-  <div class="narrow">
-    <p><a href="/topics/">All topics</a></p>
-    <h1>{label}</h1>
-    {meta && <p class="dek">{meta.description}</p>}
+  <div class="hero-field">
+    <header class="page-header wrap">
+      <p><a href="/topics/">All topics</a></p>
+      <h1>{label}</h1>
+      {meta && <p class="dek">{meta.description}</p>}
+    </header>
+  </div>
+  <div class="wrap">
     <ul class="post-list">{posts.map((p) => <PostCard post={p} />)}</ul>
   </div>
 </BaseLayout>
