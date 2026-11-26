@@ -25,7 +25,9 @@ With extensive experience in international B2B sales and marketing across the en
 Jouko has spoken at prominent international industry events, including the Industrial Methane Measurement Conference (IMM Europe), and his writing on emissions transparency and MRV frameworks has been published by organisations such as Business Finland and The Energy Community. Through these platforms he contributes to the global dialogue on measurement accuracy, atmospheric data integrity and the evolving regulatory landscape.
 
 Jouko believes that effective emission management begins with a deep understanding of measurement data, and that by making complex methodologies transparent and accessible, the energy sector can achieve real, measurable progress toward emission reduction.`,
-  jobTitle: '', // optional, e.g. "Commercial specialist"
+    photo: '/images/portrait.jpg',
+    photoAlt: 'Portrait of Jouko Aroheinä',
+    jobTitle: '', // optional, e.g. "Commercial specialist"
   // Add your real profile links (LinkedIn, ORCID, ...). Each in quotes, separated by commas.
   sameAs: [
     'https://linkedin.in/aroheina'
