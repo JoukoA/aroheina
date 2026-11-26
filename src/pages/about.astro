@@ -10,18 +10,22 @@ const jsonLd = {
     name: AUTHOR.name,
     url: AUTHOR.url,
     description: AUTHOR.bio,
+    ...(AUTHOR.photo && { image: new URL(AUTHOR.photo, Astro.site).href }),
     ...(AUTHOR.jobTitle && { jobTitle: AUTHOR.jobTitle }),
     ...(AUTHOR.sameAs.length && { sameAs: AUTHOR.sameAs }),
   },
 };
 ---
-<BaseLayout title={`About ${AUTHOR.name}`} description={AUTHOR.bio} jsonLd={jsonLd}>
+<BaseLayout title={`About ${AUTHOR.name}`} description={AUTHOR.bio} image={AUTHOR.photo || undefined} imageAlt={AUTHOR.photo ? AUTHOR.photoAlt : undefined} jsonLd={jsonLd}>
   <div class="narrow prose">
     <h1>About {AUTHOR.name}</h1>
-     {paragraphs.map((para) => <p>{para}</p>)}   
-    <h2>About this blog</h2>
-    <p>{SITE.description}</p>
-    {AUTHOR.sameAs.length > 0 && (
+    {AUTHOR.photo && (
+      <figure class="portrait">
+        <img src={AUTHOR.photo} alt={AUTHOR.photoAlt} width="800" height="1000" fetchpriority="high" decoding="async" />
+      </figure>
+    )}
+    {paragraphs.map((para) => <p>{para}</p>)}
+     {AUTHOR.sameAs.length > 0 && (
       <>
         <h2>Elsewhere</h2>
         <ul>{AUTHOR.sameAs.map((u) => <li><a href={u} rel="me noopener">{u}</a></li>)}</ul>
