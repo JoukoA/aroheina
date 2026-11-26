@@ -4,7 +4,17 @@ import PostCard from '../components/PostCard.astro';
 import { SITE, AUTHOR, TOPICS } from '../config';
 import { getPosts } from '../utils/posts';
 
-const posts = (await getPosts()).slice(0, 6);
+const all = await getPosts();
+const posts = all.slice(0, 8);
+
+// Topic cloud: every topic is shown; size grows with the number of posts (1 post = 2.4rem, +0.8rem per extra post, capped at 4.8rem).
+// Topics without posts are shown quietly, without a link (they have no page yet).
+const cloud = TOPICS.map((t) => {
+  const count = all.filter((p) => p.data.topics.includes(t.slug)).length;
+  const size = count > 0 ? Math.min(2.4 + (count - 1) * 0.8, 4.8) : 1.5;
+  return { ...t, count, size };
+});
+
 const jsonLd = [
   {
     '@context': 'https://schema.org',
@@ -16,23 +26,30 @@ const jsonLd = [
     inLanguage: SITE.language,
     author: { '@type': 'Person', name: AUTHOR.name, url: AUTHOR.url },
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: SITE.name,
-    url: SITE.url + '/',
-  },
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.url + '/' },
 ];
 ---
 <BaseLayout title={SITE.name} description={SITE.description} jsonLd={jsonLd}>
-  <div class="narrow">
+  <section class="hero wrap">
     <h1>{SITE.tagline}</h1>
     <p class="dek">{SITE.description}</p>
+  </section>
 
-    <div class="section-head"><h2>Latest posts</h2><a href="/posts/">All posts</a></div>
+  <section class="wrap block" aria-labelledby="topics-heading">
+    <h2 id="topics-heading">Topics</h2>
+    <ul class="cloud">
+      {cloud.map((t) => (
+        <li class={t.count > 0 ? 'is-active' : 'is-empty'} style={`--size:${t.size}rem`}>
+          {t.count > 0
+            ? <a href={`/topics/${t.slug}/`} title={`${t.count} ${t.count === 1 ? 'post' : 'posts'}`}>{t.label}</a>
+            : <span title="No posts yet">{t.label}</span>}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="wrap block" aria-labelledby="latest">
+    <div class="section-head"><h2 id="latest">Latest posts</h2><a href="/posts/">All posts</a></div>
     <ul class="post-list">{posts.map((p) => <PostCard post={p} level={3} />)}</ul>
-
-    <h2>Browse by topic</h2>
-    <ul class="chips">{TOPICS.map((t) => <li><a href={`/topics/${t.slug}/`}>{t.label}</a></li>)}</ul>
-  </div>
+  </section>
 </BaseLayout>
