@@ -47,14 +47,12 @@ collections:
         widget: select
         multiple: true
         options:
-          - { label: Agriculture and enteric methane, value: agriculture-enteric }
-          - { label: Wetlands and natural sources, value: wetlands }
-          - { label: 'Oil, gas and coal', value: oil-and-gas }
-          - { label: Landfills and waste, value: waste }
-          - { label: Monitoring and satellites, value: monitoring-satellite }
-          - { label: Policy and targets, value: policy }
-          - { label: Atmospheric science, value: atmospheric-science }
-          - { label: Mitigation, value: mitigation }
+          - { label: Regulation & Compliance, value: regulation-compliance }
+          - { label: Methane Management & Monitoring, value: methane-management-monitoring }
+          - { label: Corporate greenhouse gas accounting, sustainability reporting and climate-related performance, value: esg-carbon-accounting }
+          - { label: Analytics & Asset Optimisation, value: analytics-optimisation }
+          - { label: Industry Insights & Practical Guides, value: industry-insights-guides }
+            
       - { label: 'Social image (optional, 1200x630)', name: ogImage, widget: image, required: false }
       - { label: Social image description, name: ogImageAlt, widget: string, required: false }
       - label: Sources
