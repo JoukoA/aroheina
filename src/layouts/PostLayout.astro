@@ -71,8 +71,10 @@ const jsonLd = [
   tags={d.topics.map(topicLabel)}
   jsonLd={jsonLd}
 >
-  <article class="narrow">
-    <header>
+  <article>
+    <!-- Full-width field carries the logo pattern; the header itself keeps the page width -->
+    <div class="hero-field">
+    <header class="post-header wrap">
       <h1>{d.title}</h1>
       <p class="dek">{d.excerpt}</p>
       <div class="meta">
@@ -87,7 +89,9 @@ const jsonLd = [
         </ul>
       )}
     </header>
+    </div>
 
+    <div class="narrow">
     {d.ogImage && (
       <figure class="post-hero">
         <img src={d.ogImage} alt={d.ogImageAlt ?? ''} width="1200" height="630" fetchpriority="high" decoding="async" />
@@ -102,5 +106,6 @@ const jsonLd = [
       <h2 id="about-author">About the author</h2>
       <p><strong>{AUTHOR.name}.</strong> {AUTHOR.bio} <a href="/about/">More about me</a>.</p>
     </aside>
+    </div>
   </article>
 </BaseLayout>
