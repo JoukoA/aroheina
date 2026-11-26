@@ -15,6 +15,27 @@ export const AUTHOR = {
   name: 'Jouko Aroheinä',
   url: 'https://aroheina.online/about/',
   bio: 'Jouko Aroheinä is a commercial specialist operating at the intersection of environmental measurement, regulatory compliance, and technology communication. Drawing on extensive international B2B experience in environmental technology and SaaS, he helps energy organizations apply accurate, traceable emission data toward OGMP 2.0 Level 5 compliance and EU Methane Regulation (EU 2024/1787) alignment. An established industry speaker at forums like IMM Europe and a published author with Business Finland and The Energy Council, Jouko translates complex MRV methodologies into clear, actionable strategies that drive measurable emission reductions.',
+  bioLong: 'Jouko Aroheinä is a commercial professional working at the crossroads of environmental measurement,
+compliance and technology communication. His work focuses on helping organisations understand and apply
+accurate, traceable emission data to meet regulatory and sustainability goals.
+  
+Since 2021 Jouko has been deeply involved in advancing mobile emission measurement technologies and in
+supporting companies on their journey toward OGMP 2.0 Level 5 compliance and alignment with the EU
+Methane Regulation (EU) 2024/1787.
+
+With extensive experience in international B2B sales and marketing across the environmental technology and
+SaaS sectors, his focus has consistently been on turning complex technical and regulatory topics into clear,
+actionable insights for industry professionals and decision-makers.
+  
+Jouko has spoken at prominent international industry events, including the Industrial Methane Measurement
+Conference (IMM Europe), and his writing on emissions transparency and MRV frameworks has been
+published by organisations such as Business Finland and The Energy Community. Through these platforms he
+contributes to the global dialogue on measurement accuracy, atmospheric data integrity and the evolving
+regulatory landscape.
+  
+Jouko believes that effective emission management begins with a deep understanding of measurement data,
+and that by making complex methodologies transparent and accessible, the energy sector can achieve real,
+measurable progress toward emission reduction.'
   jobTitle: 'Independent Professional', // optional
   sameAs: ['https://github.com/joukoa', 'https://www.linkedin.com/in/aroheina/'] as string[],
 };
