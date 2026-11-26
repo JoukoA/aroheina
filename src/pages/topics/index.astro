@@ -6,9 +6,13 @@ const posts = await getPosts();
 const count = (slug: string) => posts.filter((p) => p.data.topics.includes(slug)).length;
 ---
 <BaseLayout title="Topics" description="Explore insights on emissions, energy, regulation and industrial performance.">
+  <div class="hero-field">
+    <header class="page-header wrap">
+      <h1>Topics</h1>
+      <p class="dek">A closer look at the evolving relationship between emissions, regulation, technology and industrial operations. Explore the topics, methods and developments shaping the energy sector.</p>
+    </header>
+  </div>
   <div class="wrap">
-    <h1>Topics</h1>
-    <p class="dek">A closer look at the evolving relationship between emissions, regulation, technology and industrial operations. Explore the topics, methods and developments shaping the energy sector.</p>
     <ul class="topic-grid">
       {TOPICS.map((t) => (
         <li>
