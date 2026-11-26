@@ -164,6 +164,10 @@ article.narrow > header .meta { padding-top: var(--s2); border-top: 1px solid va
 .prose sup a { text-decoration: none; font-size: .8em; }
 .prose > p:first-child { font-size: 1.15em; }    /* lead paragraph ("In short") */
 
+/* ---------- Post hero image (the social image, shown at the top of the post) ---------- */
+.post-hero { margin: var(--s4) 0 var(--s5); }
+.post-hero img { display: block; width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 3px; background: var(--wash); }
+
 /* ---------- Figures, tables, video ---------- */
 figure { margin: var(--s4) 0; }
 figcaption { font-size: 1rem; line-height: 1.5; color: var(--muted); margin-top: .7rem; max-width: 46rem; }
