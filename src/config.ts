@@ -1,6 +1,6 @@
 // Single place for site-wide settings. Edit the PLACEHOLDER values.
 export const SITE = {
-  name: 'Aroheina',
+  name: 'Aroheina.Online',
   tagline: 'Emissions, Energy & Industrial Performance',
   description:
     ' Exploring the connections between environmental responsibility, regulatory developments, technology and business decision-making.',
