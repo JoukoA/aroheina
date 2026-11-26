@@ -88,6 +88,12 @@ const jsonLd = [
       )}
     </header>
 
+    {d.ogImage && (
+      <figure class="post-hero">
+        <img src={d.ogImage} alt={d.ogImageAlt ?? ''} width="1200" height="630" fetchpriority="high" decoding="async" />
+      </figure>
+    )}
+
     <div class="prose"><slot /></div>
 
     <Sources sources={d.sources} />
