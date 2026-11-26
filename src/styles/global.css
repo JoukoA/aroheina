@@ -6,7 +6,7 @@
    ===================================================================== */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   --font: 'Laconic Lemming', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
@@ -26,9 +26,10 @@
   --s1: .5rem; --s2: 1rem; --s3: 1.5rem; --s4: 2.5rem; --s5: 4.5rem; --s6: clamp(4rem, 10vw, 8rem);
 }
 
-/* Dark mode follows the visitor's system setting. Delete this block to keep the site always light. */
+/* Dark theme. The header switch sets data-theme on <html> (and remembers it).
+   Without the switch/JavaScript, the visitor's system setting decides. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --paper: #151c1c;
     --ink: #e6eeee;
     --muted: #a3b4b4;
@@ -38,8 +39,22 @@
     --accent-deep: #b9e2e9;
     --foot-bg: #0f1515;
     --foot-ink: #e6eeee;
+    color-scheme: dark;
   }
 }
+:root[data-theme='dark'] {
+    --paper: #151c1c;
+    --ink: #e6eeee;
+    --muted: #a3b4b4;
+    --rule: #2d3a3a;
+    --wash: #1c2626;
+    --accent: #8fcad5;
+    --accent-deep: #b9e2e9;
+    --foot-bg: #0f1515;
+    --foot-ink: #e6eeee;
+    color-scheme: dark;
+}
+:root[data-theme='light'] { color-scheme: light; }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -85,6 +100,8 @@ main { padding-block: var(--s4) 0; }
 .site-nav a { color: var(--ink); text-decoration: none; padding-block: .2rem; border-bottom: 2px solid transparent; }
 .site-nav a:hover { color: var(--accent); }
 .site-nav a[aria-current='page'] { border-bottom-color: var(--ink); }
+.theme-toggle { font: inherit; font-size: 1.05rem; color: var(--ink); background: none; border: 0; border-bottom: 2px solid transparent; padding: .2rem 0; cursor: pointer; }
+.theme-toggle:hover { color: var(--accent); }
 
 /* ---------- Footer ---------- */
 .site-footer { margin-top: var(--s6); padding-block: var(--s4) var(--s5); background: var(--foot-bg); color: var(--foot-ink); font-size: 1rem; line-height: 1.6; }
