@@ -19,7 +19,7 @@
   --accent-deep: #11373f;
   --foot-bg: #212929;
   --foot-ink: #edf2f2;
-  --pattern-opacity: .18;   /* front-page logo pattern, light theme (dark marks need more strength) */
+  --pattern-opacity: .24;   /* front-page logo pattern, light theme (dark marks need more strength) */
 
   --measure: 38rem;        /* reading column */
   --wide: 68rem;           /* page width */
