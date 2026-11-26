@@ -52,10 +52,8 @@ collections:
           - { label: Corporate greenhouse gas accounting, sustainability reporting and climate-related performance, value: esg-carbon-accounting }
           - { label: Analytics & Asset Optimisation, value: analytics-optimisation }
           - { label: Industry Insights & Practical Guides, value: industry-insights-guides }
-          - { label: 'Hero and social image (1200x630, shown at the top of the post and in link previews)', name: ogImage, widget: image, required: false }
-          - { label: 'Image description (alt text: say what the image shows)', name: ogImageAlt, widget: string, required: false }
-
-      
+      - { label: 'Hero and social image (1200x630, shown at the top of the post and in link previews)', name: ogImage, widget: image, required: false }
+      - { label: 'Image description (alt text: say what the image shows)', name: ogImageAlt, widget: string, required: false }
       - label: Sources
         name: sources
         widget: list
