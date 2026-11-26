@@ -25,7 +25,7 @@ export const TOPICS = [
   { slug: 'regulation-compliance', label: 'Regulation & Compliance', description: 'Understanding regulatory obligations, technical standards and compliance implementation.' },
   { slug: 'methane-management-monitoring', label: 'Methane Management & Monitoring', description: 'Technical measurement, monitoring and management of methane emissions in the oil and gas industry.' },
   { slug: 'esg-carbon-accounting', label: 'ESG & Carbon Accounting', description: 'Corporate greenhouse gas accounting, sustainability reporting and climate-related performance.' },
-  { slug: 'data-analytics-optimisation', label: 'Data, Analytics & Asset Optimisation', description: 'Turning emissions and operational measurements into actionable business intelligence.' },
+  { slug: 'analytics-optimisation', label: 'Analytics & Asset Optimisation', description: 'Turning emissions and operational measurements into actionable business intelligence.' },
   { slug: 'industry-insights-guides', label: 'Industry Insights & Practical Guides', description: 'Industry knowledge, technical explanations and practical applications for energy professionals.' },
 ] as const;
 
