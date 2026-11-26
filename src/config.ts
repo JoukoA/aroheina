@@ -30,7 +30,7 @@ Jouko believes that effective emission management begins with a deep understandi
     jobTitle: '', // optional, e.g. "Commercial specialist"
   // Add your real profile links (LinkedIn, ORCID, ...). Each in quotes, separated by commas.
   sameAs: [
-    'https://linkedin.in/aroheina',
+    'https://linkedin.com/in/aroheina',
     'https://orcid.org/0009-0007-1649-6679'
   ] as string[],
 };
