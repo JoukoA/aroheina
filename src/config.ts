@@ -1,9 +1,9 @@
 // Single place for site-wide settings. Edit the PLACEHOLDER values.
 export const SITE = {
   name: 'Aroheina',
-  tagline: 'Notes on methane emissions: sources, measurement and policy',
+  tagline: 'Emissions, Energy & Industrial Performance',
   description:
-    'Plain-language, source-cited analysis of methane emissions: agriculture, wetlands, oil and gas, waste, satellite monitoring and climate policy.',
+    ' Exploring the connections between environmental responsibility, regulatory developments, technology and business decision-making.',
   url: 'https://aroheina.online',
   language: 'en',
   locale: 'en_GB',
@@ -28,7 +28,7 @@ Jouko believes that effective emission management begins with a deep understandi
   jobTitle: '', // optional, e.g. "Commercial specialist"
   // Add your real profile links (LinkedIn, ORCID, ...). Each in quotes, separated by commas.
   sameAs: [
-    'https://github.com/joukoa',
+    'https://linkedin.in/aroheina, https://orcid.org/0009-0007-1649-6679',
   ] as string[],
 };
 
