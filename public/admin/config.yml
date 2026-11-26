@@ -53,8 +53,10 @@ collections:
           - { label: Analytics & Asset Optimisation, value: analytics-optimisation }
           - { label: Industry Insights & Practical Guides, value: industry-insights-guides }
             
-      - { label: 'Social image (optional, 1200x630)', name: ogImage, widget: image, required: false }
-      - { label: Social image description, name: ogImageAlt, widget: string, required: false }
+        - { label: 'Hero and social image (1200x630, shown at the top of the post and in link previews)', name: ogImage, widget: image, required: false }
+        - { label: 'Image description (alt text: say what the image shows)', name: ogImageAlt, widget: string, required: false }
+
+      
       - label: Sources
         name: sources
         widget: list
