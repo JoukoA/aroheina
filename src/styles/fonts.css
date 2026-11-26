@@ -1,42 +1,35 @@
+/*
+  Laconic Lemming, self-hosted.
+  Each face lists a .woff2 file first (smaller, optional) and falls back to the .ttf you uploaded.
+  Files live in /public/fonts/. File names are case-sensitive.
+*/
 @font-face {
   font-family: 'Laconic Lemming';
-  src: url('/fonts/LaconicLemming-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
+  src: url('/fonts/LaconicLemming-Light.woff2') format('woff2'), url('/fonts/LaconicLemming-Light.ttf') format('truetype');
+  font-weight: 300; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Laconic Lemming';
-  src: url('/fonts/LaconicLemming-LightItalic.woff2') format('woff2');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
+  src: url('/fonts/LaconicLemming-LightItalic.woff2') format('woff2'), url('/fonts/LaconicLemming-LightItalic.ttf') format('truetype');
+  font-weight: 300; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: 'Laconic Lemming';
-  src: url('/fonts/LaconicLemming-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  src: url('/fonts/LaconicLemming-Regular.woff2') format('woff2'), url('/fonts/LaconicLemming-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Laconic Lemming';
-  src: url('/fonts/LaconicLemming-Italic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+  src: url('/fonts/LaconicLemming-Italic.woff2') format('woff2'), url('/fonts/LaconicLemming-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: 'Laconic Lemming';
-  src: url('/fonts/LaconicLemming-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+  src: url('/fonts/LaconicLemming-Bold.woff2') format('woff2'), url('/fonts/LaconicLemming-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Laconic Lemming';
-  src: url('/fonts/LaconicLemming-BoldItalic.woff2') format('woff2');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
+  src: url('/fonts/LaconicLemming-BoldItalic.woff2') format('woff2'), url('/fonts/LaconicLemming-BoldItalic.ttf') format('truetype');
+  font-weight: 700; font-style: italic; font-display: swap;
 }
